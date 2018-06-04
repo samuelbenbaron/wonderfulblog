@@ -21,9 +21,6 @@
                 <label>Votre Article:</label>
                 <textarea name="article" class="form-control" placeholder="Ecrivez votre article"></textarea>
                 <br>
-                <label>URL IMAGE:</label>
-                <input type="text" name="image" class="form-control" placeholder="URL Image">
-                <br>
                 <button name=ok type="submit" class="btn btn-info" onclick="writeComment()">Valider</button>
             </form>
         </div>
@@ -35,13 +32,10 @@
     <h3>List des derniers articles : </h3>
 
 </div>
-
-<div class="container">
 <table class="table table-bordered table-striped carousel-inner">
     <thead>
     <th>Titre</th>
     <th>Contenu</th>
-    <th>Illustration</th>
     </thead>
 <?php
 while($lire=$articles->fetch()){ ?>
@@ -49,15 +43,15 @@ while($lire=$articles->fetch()){ ?>
             <tr>
             <td><?php echo $lire['titre'];?> </td>
             <td><?php echo $lire['contenu'];?> </td>
-            <td> <img class="col-md-8" src="<?php echo $lire['image']?>";> </td>
+            <td></td>
             </tr>
 <?php }
 $articles->closeCursor();
 
 ?>
 </table>
-</div>
-<!--rentre dans le tableau lire, va chercher la clef 'titre' et affiche (ca c le echo) la valeur de la clef-->
+
+//rentre dans le tableau lire, va chercher la clef 'titre' et affiche (ca c le echo) la valeur de la clef
 
 
 </body>
