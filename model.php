@@ -12,12 +12,12 @@ function dbConnect() {
 
 function addArticle($titre, $article, $image){
     $db=dbConnect();
-    $req = $db->prepare('INSERT INTO article (titre, contenu, date_creation, image) VALUES (:titre, :article, NOW()), image');
+    $req = $db->prepare('INSERT INTO article (titre, contenu, date_creation, image) VALUES (:titre, :article, NOW(), :image)');
     $req -> execute(array('titre' => $titre, 'article' => $article, 'image' => $image));
 }
 
  function readArticle(){
     $db=dbConnect();
-    $req=$db->query('SELECT * FROM article LIMIT 0, 15');
+    $req=$db->query('SELECT * FROM article');
     return $req;
 }

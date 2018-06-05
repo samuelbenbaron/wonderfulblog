@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-2">
             <img src="https://cdn1.iconfinder.com/data/icons/softwaredemo/PNG/256x256/Pencil3.png" class="img-responsive center-block" alt="">
-        </div><!--.col -->
+        </div>
         <div class="col-md-8">
             <h3>Ecrivez votre article !</h3>
             <form name="articleform" method="post" action="index.php?action=ajouter" >
@@ -21,7 +21,10 @@
                 <label>Votre Article:</label>
                 <textarea name="article" class="form-control" placeholder="Ecrivez votre article"></textarea>
                 <br>
-                <button name=ok type="submit" class="btn btn-info" onclick="writeComment()">Valider</button>
+                <label>URL IMAGE:</label>
+                <input type="text" name="image" class="form-control" placeholder="URL Image">
+                <br>
+                <button name='ok' type="submit" class="btn btn-info">Valider</button>
             </form>
         </div>
     </div>
@@ -32,10 +35,13 @@
     <h3>List des derniers articles : </h3>
 
 </div>
+
+<div class="container">
 <table class="table table-bordered table-striped carousel-inner">
     <thead>
     <th>Titre</th>
     <th>Contenu</th>
+    <th>Illustration</th>
     </thead>
 <?php
 while($lire=$articles->fetch()){ ?>
@@ -43,15 +49,15 @@ while($lire=$articles->fetch()){ ?>
             <tr>
             <td><?php echo $lire['titre'];?> </td>
             <td><?php echo $lire['contenu'];?> </td>
-            <td></td>
+            <td> <img class="col-md-8" src="<?php echo $lire['image']?>";> </td>
             </tr>
 <?php }
 $articles->closeCursor();
 
 ?>
 </table>
-
-//rentre dans le tableau lire, va chercher la clef 'titre' et affiche (ca c le echo) la valeur de la clef
+</div>
+<!--rentre dans le tableau lire, va chercher la clef 'titre' et affiche (ca c le echo) la valeur de la clef-->
 
 
 </body>
