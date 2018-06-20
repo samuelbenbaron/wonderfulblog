@@ -9,7 +9,7 @@ require ('model.php');
         $article = $_POST['article'];
         $image = $_POST['image'];
         addArticle($titre, $article, $image);
-        //header('Location: index.php');
+        header('Location: index.php');
         //require ('view.php');
 
 
@@ -22,3 +22,8 @@ require ('model.php');
         $articles=readArticle();
         require('view.php');
     }
+
+    function lireComment(){
+        $comments=readComment();
+        require('view.php');
+}

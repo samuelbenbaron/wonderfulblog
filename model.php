@@ -21,3 +21,9 @@ function addArticle($titre, $article, $image){
     $req=$db->query('SELECT * FROM article');
     return $req;
 }
+
+function readComment(){
+    $db=dbConnect();
+    $read=$db->query('SELECT * FROM commentaire');
+    return $read;
+}
